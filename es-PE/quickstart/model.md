@@ -3,9 +3,15 @@ name: Models
 sort: 4
 ---
 
-# Creating models
+# Crenado un modelo
 
-We know we are using databases a lot in web applications so models are the  usual way to handle these kind of jobs. There is no demo on models in our `bee new` project, but there are demos on implementing and using models in the `bee api` project. Basically, if your application is simple enough the Controller can handle everything. However, if there is some reusable logic we can factor it out into a module. The Model is the result of such logic extraction. Usually the model will be handling some data reading and writing. Here is an example:
+Sabemos que estamos usando muchas bases de datos en las aplicaciones web por lo que los modelos
+son la forma ususal de manejar este tipo de tareas. No hay ningún demo de models en nuestro
+proyecto `bee new`, pero hay demos de como implementarlos y usarlos en proyecto `bee api`.
+Básicamente, si tu aplicación es lo suficientemente simple el Controller (controlador) puede
+manipular cualquier cosa. Sin embargo, si hay alguna lógica reusable podemos contruirla dentro
+de un módulo. El modelo es el resultado de la extracción de la lógica. Usualmente el modelo
+manupulará alguna información leyéndola y/ escribiéndola. Aquí algunos ejemplo:
 
 ```
 package models
@@ -37,4 +43,7 @@ func LogPV(urls string) bool {
 }
 ```
 
-So if your application is simple enough then you may not need models at all. But when your application get bigger and you want more reuseable code and need logic separation you must use models. In the next section we will talk about how to write the View.
+Entonces, si tu aplicación es lo suficientemente simple, puedes no necesitar modelos del todo.
+Pero cuando tu apliación crece demasiado y quieres más código reusable y necesitas una
+separación de lógica, debes usar modelos. En la siguiente sección hablaremos de como usar las
+vistas (View).

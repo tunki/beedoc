@@ -1,13 +1,18 @@
 ---
-name: View
+name: Vistas
 sort: 5
 ---
 
-# Creating views
+# Creando vistas
 
-When we created the Controller we used the line `this.TplNames = "index.tpl"` to declare the template to be rendered. By default `beego.Controller` supports `tpl` and `html` extensions. You can call `beego.AddTemplateExt` to add other extensions. So how can views show the data we need? Beego is using the default template engine of built into Go so it's Go templates, plain and simple. You can learn how to use Go template from [*Build Web Application with Golang*](https://github.com/Unknwon/build-web-application-with-golang_EN/blob/master/eBook/07.4.md).
+Cuando creamos un controlador, usamos la línea `this.TplNames = "index.tpl"` para declarar la
+plantilla a  ser renderizada. Por defecto `beego.Controller` soporta las extenciones `tpl` y
+`html`. Puedes llamar a `beego.AddTemplateExt` para añadir otras extensiones. Entonces, ¿Cómo
+es que las vistas(views) muestran la data que necesitamos? Beego usa por defecto template
+engine nativo de Go por lo que es una plantilla de Go, plano y simple. Puedes aprender como
+usar las plantilla de Go desde [*Build Web Application with Golang*](https://github.com/Unknwon/build-web-application-with-golang_EN/blob/master/eBook/07.4.md).
 
-Let's look at an example:
+Veamos unm ejemplo:
 
 ```
 <!DOCTYPE html>
@@ -25,9 +30,9 @@ Let's look at an example:
 			  <div class="hero-text">
 			    <h1>Welcome to Beego!</h1>
 			    <p class="description">
-			    	Beego is a simple & powerful Go web framework which is inspired by tornado and sinatra.
+			    	Beego es un web framework simple y poderoso el cual está inspirado por tornado y sinatra.
 			    <br />
-			    	Official website: <a href="http://{{.Website}}">{{.Website}}</a>
+			    	Web oficial: <a href="http://{{.Website}}">{{.Website}}</a>
 			    <br />
 			    	Contact me: {{.Email}}
 			    </p>
@@ -39,6 +44,8 @@ Let's look at an example:
 </html>
 ```
 
-We assigned the data into a map type variable `Data` in Controller, which is used as the rendering context. Therefore we can now access and output the data by using the keys `.Website` and `.Email`. 
+Hemos asignado la data dentro un variable `Data` tipo map en Controller. la cual es usada como
+renderizadora. Por lo tanto ahora podemos acceder y emitir la data usando las claves (keys)
+`.Website` y `.Email`. 
 
-Next let's talk about how to serve static files.
+A continuación hablaremos sobre como servir archivos estáticos.

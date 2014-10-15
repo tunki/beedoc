@@ -3,9 +3,11 @@ name: Controller
 sort: 3
 ---
 
-# Controller logic
+# Lógica de control
 
-We learned how we distribute the users' processes to controllers in the previous section. In this section we will learn how to write a controller. Let's start with some code:
+Hemos aprendido a como distribuir los procesos de los usuarios para controlar en la sección
+anterior. En esta sección aprenderemos como escribir un controlador. Empecemos con algo de
+código:
 
 ```
 package controllers
@@ -25,16 +27,28 @@ func (this *MainController) Get() {
 }
 ```
 
-At the beginning we create the `MainController` and it contains an anonymous struct field of type `beego.Controller`. This is called struct embedding and is the way how Go mimics inheritance. This means `MainController` automatically acquires all the methods of `beego.Controller`.
+Al inicio creamos el `MainController` y contiene un campo anónimo en la estructura del tipo
+`beego.Controller`. Esta es llamada estructura embebida y es la manera de como Go imita la
+herencia. Esto significa que `MainController` automáticamente adquiere todos los métodos de
+`beego.Controller`.
 
-`beego.Controller` has lots of methods such as `Init`, `Prepare`, `Post`, `Get`, `Delete` and `Head`. We can overwrite these functions by implementing them. In this case we overwrote `GET` method.
+`beego.Controller` tiene muchos métodos tales como `Init`, `Prepare`, `Post`, `Get`, `Delete`
+y `Head`. Podemos sobreescribir estas funciones para implementarlas. En este caso,
+sobreescribimos el método `GET`.
 
+Hemos hablado sobre el echo de que Beego un -----
 We talked about the fact that Beego is a RESTFul framework so our requests will run the related `req.Method` method by default. For example, if the browser sends a `GET` request, it will execute the `Get` method in `MainController`. Therefore the `Get` method and the logic we defined above will be executed.
 
-The logic in our `Get` method just outputs some data. We can get our data by many ways and store it in `this.Data` which is a map[string]interface{}. We can assign any type of data here. In this case we just assigned two strings.
+La lógica en nuestro método `Get` solo tiene algunas salidas. Podemos obtener la data de muchas
+maneras y almacenarla en `this.Data` el cual es un map[string]interface{}. Podemos asignar
+cualquier tipo de dato aquí. En este caso solo asignamos dos strings.
 
-The last thing to be done is rendering the template. `this.TplNames` specifies the template which will be rendered: Here it's `index.tpl`. If you don't set the template, it will default to `controller/method_name.tpl`. For example, in this case it would try to find `maincontroller/get.tpl`.
+La última cosa por hacer es renderizar la plantilla. `this.TplNames` especifica la plantilla
+que será renderizada: Aquí está `index.tpl`. Si no has configurado la plantilla, esta eligirá
+por defecto a `controller/method_name.tpl`. Por ejemplo,en este caso trataría de encontrar
+`maincontroller/get.tpl`.
 
-Beego will call the `Render` function (which is implemented in `beego.Controller`) automatically if you set up the template so you don't need to render it manually.
+Beego llamará a la función `Render` (la cual es implementada en `beego.Controller`) automátixamente si no has configurado las plantillas por lo que no necesitas renderizarlo manualmente.
 
-This was only a brief introduction. Check out the controller section in the MVC introduction to learn more. Next we will talk about how to write models.
+Este fue tan solo una breve introducción. Echa un vistaso a la sección Controller (controlador)
+en la introducción a MVC introduction para aprender más. A continuación hablaremos acerca de como escribir models (modelos).
