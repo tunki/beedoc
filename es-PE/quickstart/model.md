@@ -3,7 +3,7 @@ name: Modelos
 sort: 4
 ---
 
-# Crenado un modelo
+# Creando un modelo
 
 Sabemos que estamos usando muchas bases de datos en las aplicaciones web por lo que los modelos
 son la forma ususal de manejar este tipo de tareas. No hay ningún demo de models en nuestro
